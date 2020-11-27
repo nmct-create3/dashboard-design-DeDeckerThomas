@@ -1,26 +1,51 @@
 /*------------------------------------*\
-#FONTS
-\*------------------------------------*/
-
-/*------------------------------------*\
 #Variables
 \*------------------------------------*/
 
 :root {
-    /* colors */
-    --color-alpha-light: MEDIUMSLATEBLUE;
-    --color-alpha: SLATEBLUE;
+  /* colors */
+  --color-alpha-light: #a3a0fb;
+  --color-alpha: #43425d;
+  --color-alpha-dark: #3b3b53;
 
-    --color-neutral-light: LIGHTSLATEGRAY;
-    --color-neutral: SLATEGRAY;
-    --color-neutral-dark: DARKSLATEGRAY;
+  --color-neutral-xx-light: #f0f0f7;
+  --color-neutral-x-light: #ebebf2;
+  --color-neutral-light: #d7dae2;
+  --color-neutral: #bcbccb;
+  --color-neutral-dark: #a5a4bf;
+  --color-neutral-x-dark: #808495;
+  --color-neutral-xx-dark: #4d4f5c;
 
-    /* Shadows */
+  --color-blue: #3b86ff;
 
-    /* border radius */
+  /* Whitespace */
+  /* 
+  15px = 1rem
+  5px = 1rem/3
+  */
+  --global-baseline: calc(1rem / 3);
+  --global-whitespace-xxs: var(--global-baseline); /* = 5px */
+  --global-whitespace-xs: calc(var(--global-baseline) * 2); /* = 10px */
+  --global-whitespace-sm: calc(var(--global-baseline) * 3); /*  = 15px */
+  --global-whitespace-md: calc(var(--global-baseline) * 4); /*  = 20px */
+  --global-whitespace-lg: calc(var(--global-baseline) * 5); /*  = 25px */
+  --global-whitespace-xl: calc(var(--global-baseline) * 6); /*  = 30px */
 
-    /* transitions */
-    --transition-alpha: .1s;
+  /* Shadows */
+
+  /* border radius */
+  --global-borderWidth: 2px;
+  --global-input-borderColor: var(--color-neutral-light);
+  --global-borderRadius: 4px;
+  --global-inputColor: var(--color-neutral-xx-dark);
+  --global-input-backgroundColor: white;
+  --global-input-hover-borderColor: var(--color-neutral);
+  --global-input-focus-borderColor: var(--color-blue);
+  --global-input-boxShadow: 0px 2px 3px rgba(0, 0, 0, 0.05);
+
+  /* transitions */
+  --transition-alpha: 0.1s;
+  --transition-beta: 1s;
 }
 
 /*------------------------------------*\
@@ -34,21 +59,30 @@
 */
 
 html {
-    font-size: 16px;
-    line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
-    color: var(--color-neutral-dark);
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+  font-size: 93.75%;
+  line-height: 1.5;
+  font-family: "Source Sans Pro", arial, sans-serif;
+  color: var(--color-neutral-xx-dark);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: white;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
+/* ::-webkit-scrollbar,*/
+/* ::-moz-scrollbar {
+  display: none;
+} */
 
 /*
 * Remove text-shadow in selection highlight:
@@ -58,15 +92,15 @@ html {
 */
 
 ::-moz-selection {
-    background: var(--color-alpha);
-    color: white;
-    text-shadow: none;
+  background: var(--color-alpha);
+  color: white;
+  text-shadow: none;
 }
 
 ::selection {
-    background: var(--color-alpha);
-    color: white;
-    text-shadow: none;
+  background: var(--color-alpha);
+  color: white;
+  text-shadow: none;
 }
 
 /*------------------------------------*\
@@ -80,8 +114,8 @@ Default markup for images to make them responsive
 */
 
 img {
-    max-width: 100%;
-    vertical-align: top;
+  max-width: 100%;
+  vertical-align: top;
 }
 
 /*
@@ -93,34 +127,35 @@ img {
 h1,
 h2,
 h3 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 h1 {
-    font-size: 36px;
-    line-height: 48px;
-    margin: 0 0 24px;
+  font-size: 2.4rem;
+  line-height: calc(var(--global-baseline) * 10);
+  margin: 0 0 var(--global-whitespace-md);
 }
 
 h2 {
-    font-size: 32px;
-    line-height: 40px;
-    margin: 0 0 24px;
+  font-weight: 400;
+  font-size: 1.87rem;
+  line-height: calc(var(--global-baseline) * 8);
+  margin: 0 0 var(--global-whitespace-lg);
 }
 
 h3 {
-    font-size: 26px;
-    line-height: 32px;
-    margin: 0 0 24px;
+  font-size: 1.73rem;
+  line-height: calc(var(--global-baseline) * 6);
+  margin: 0 0 var(--global-whitespace-md);
 }
 
 h4,
 h5,
 h6 {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-    margin: 0 0 24px;
+  font-size: 1.06rem;
+  font-weight: 600;
+  line-height: calc(var(--global-baseline) * 5);
+  margin: 0 0 var(--global-whitespace-md);
 }
 
 p,
@@ -130,74 +165,74 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+  margin: 0 0 var(--global-whitespace-md);
 }
 
 ul,
 ol {
-    padding-left: 24px;
+  padding-left: var(--global-whitespace-lg);
 }
 
 li ul,
 li ol {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 blockquote {
-    font-style: normal;
-    font-size: 23px;
-    line-height: 32px;
-    margin: 0 0 24px;
+  font-style: normal;
+  font-size: 1.53rem;
+  line-height: calc(32rem / 15);
+  margin: 0 0 var(--global-whitespace-lg);
 }
 
 blockquote * {
-    font-size: inherit;
-    line-height: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 figcaption {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    margin-top: 8px;
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: calc(24rem / 15);
+  margin-top: var(--global-whitespace-xs);
 }
 
 hr {
-    border: 0;
-    height: 1px;
-    background: LightGrey;
-    margin: 0 0 24px;
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 1.6rem;
 }
 
 a {
-    transition: all var(--transition-alpha);
-    color: var(--color-alpha);
-    outline-color: var(--color-alpha);
-    outline-width: medium;
-    outline-offset: 2px;
+  transition: all var(--transition-alpha);
+  color: var(--color-alpha);
+  outline-color: var(--color-alpha);
+  outline-width: medium;
+  outline-offset: 2px;
 }
 
 a:visited,
 a:active {
-    color: var(--color-alpha);
+  color: var(--color-alpha);
 }
 
 a:hover,
 a:focus {
-    color: var(--color-alpha-light);
+  color: var(--color-alpha-light);
 }
 
 label,
 input {
-    display: block;
+  display: block;
 }
 
 select {
-    width: 100%;
+  width: 100%;
 }
 
 input::placeholder {
-    color: var(--color-neutral-light);
+  color: var(--color-neutral-light);
 }
 
 /*------------------------------------*\
@@ -211,8 +246,8 @@ input::placeholder {
 */
 
 .o-row {
-    position: relative;
-    padding: 24px 24px 0;
+  position: relative;
+  padding: 1.6rem 1.6rem 0;
 }
 
 /*
@@ -222,10 +257,10 @@ input::placeholder {
 */
 
 .o-container {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 79.5em; /* 79.5 * 16px = 1272 */
-    width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 79.5em; /* 79.5 * 16px = 1272 */
+  width: 100%;
 }
 
 /*
@@ -235,8 +270,8 @@ input::placeholder {
 */
 
 .o-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 /*
@@ -246,26 +281,26 @@ input::placeholder {
 */
 
 .o-button-reset {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
 
-    /* inherit font & color from ancestor */
-    color: inherit;
-    font: inherit;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
 
-    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-    line-height: normal;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
 
-    /* Corrects font smoothing for webkit */
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
 
-    /* Corrects inability to style clickable `input` types in iOS */
-    -webkit-appearance: none;
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
 }
 
 /*
@@ -275,14 +310,14 @@ input::placeholder {
 */
 
 .o-hide-accessible {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /*------------------------------------*\
@@ -295,6 +330,349 @@ input::placeholder {
     Website main logo
 */
 
+.c-logo {
+  font-size: 1rem;
+  line-height: 1.33rem;
+  height: 100%;
+  color: white;
+}
+
+/*
+    Component: App
+    ---
+    Website application
+*/
+
+.c-app {
+  --c-app__topbar-height: calc(var(--global-baseline) * 14);
+  min-height: 100vh;
+}
+.c-app__logo {
+  background-color: var(--color-alpha-dark);
+  padding: var(--global-whitespace-lg) var(--global-whitespace-md);
+}
+
+.c-app__topbar {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: var(--global-whitespace-sm) var(--global-whitespace-md);
+  z-index: 20;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.c-app__sidebar {
+  background-color: var(--color-alpha);
+  display: none;
+}
+
+.c-app__main {
+  padding: var(--global-whitespace-xl) calc(var(--global-baseline) * 15);
+  background-color: var(--color-neutral-xx-light);
+}
+
+@media (min-width: 992px) {
+  .c-app__sidebar {
+    display: block;
+  }
+
+  .c-app {
+    display: grid;
+    grid-template-columns: 17rem 1fr;
+    grid-template-rows: var(--c-app__topbar-height) 1fr;
+  }
+  /*
+    Solution 1
+    Scrollen over hele pagina en sidebar
+    Meer webby.
+
+  */
+
+  .c-app__topbar,
+  .c-app__logo {
+    position: sticky;
+    top: 0;
+  }
+
+  .c-app__sidebar {
+    position: sticky;
+    top: var(--c-app__topbar-height);
+    height: calc(100vh - var(--c-app__topbar-height));
+    overflow: auto;
+  }
+
+  /*
+    Solution 2
+    Scrollen over hele pagina en sidebar
+    Meer appy
+
+  */
+
+  /* .c-app__sidebar,
+  .c-app__main {
+    height: calc(100vh - var(--c-app__topbar-height));
+    overflow-y: auto;
+    overflow-x: hidden;
+  } */
+}
+
+/*
+    Component: Main nav
+    ---
+    
+*/
+
+.c-main-nav {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: calc(var(--global-baseline) * 4);
+}
+
+.c-main-nav__item__icon {
+  display: block;
+  width: calc(16rem / 15);
+  height: calc(16rem / 15);
+  fill: var(--color-neutral-dark);
+  margin-right: var(--global-whitespace-xs);
+}
+
+.c-main-nav__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  padding: var(--global-whitespace-sm) var(--global-whitespace-lg)
+    var(--global-whitespace-sm) var(--global-whitespace-md);
+  margin-top: var(--global-whitespace-xxs);
+  border-left: 5px solid transparent;
+  transition: all var(--transition-beta) ease-out;
+  transition-property: background-color, border-color;
+}
+
+.c-main-nav__link:hover,
+.c-main-nav__link:focus,
+.c-main-nav__link:active,
+.c-main-nav__link:visited {
+  color: white;
+}
+
+.is-selected .c-main-nav__link,
+.c-main-nav__link:hover {
+  border-left: 5px solid var(--color-alpha-light);
+  background-color: var(--color-alpha-dark);
+  transition-duration: var(--transition-alpha);
+}
+
+/*
+    Component: Dashboard
+    ---
+    Dashboard and dashboard items styles
+*/
+
+.c-dashboard {
+  display: grid;
+  gap: var(--global-whitespace-xl);
+}
+
+.c-dashboard__item {
+  background-color: white;
+  padding: var(--global-whitespace-md);
+}
+
+@media screen and (min-width: 992px) {
+  .c-dashboard {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .c-dashboard__item {
+    grid-column: 1/-1;
+  }
+}
+
+/*
+    Component: Card
+    ---
+    Card styles 
+*/
+
+.c-card__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-card__title {
+  font-size: 1.2rem;
+  color: var(--color-neutral-xx-dark);
+}
+
+/*
+    Component: Input
+    ---
+    Class to put on all input="text" like form inputs
+*/
+
+.c-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: var(--global-borderWidth) solid var(--global-input-borderColor);
+  border-radius: var(--global-borderRadius);
+  color: var(--global-inputColor);
+  background-color: var(--global-input-backgroundColor);
+  font-family: inherit;
+  font-size: 0.87rem;
+  line-height: calc(var(--global-baseline) * 4);
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth))
+    var(--global-whitespace-md);
+  outline: none;
+  box-shadow: var(--global-input-boxShadow);
+}
+
+.c-input:hover {
+  border-color: var(--global-input-hover-borderColor);
+}
+
+.c-input:focus,
+.c-input:active {
+  border-color: var(--global-input-focus-borderColor);
+}
+
+/*
+    Component: custom select
+    ---
+    Classes to put on a custom select
+*/
+
+.c-custom-select {
+  display: block;
+  position: relative;
+}
+
+.c-custom-select__input {
+  padding-right: calc(var(--global-baseline) * 8);
+}
+
+.c-custom-select__symbol {
+  width: calc(11rem / 15);
+  height: calc(7rem / 15);
+  fill: var(--color-neutral-dark);
+  position: absolute;
+  right: var(--global-whitespace-xs);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/*
+    Component: Custom chart
+    ---
+    Custom SVG donut chart styles
+*/
+
+.c-donut {
+  --donut-viewbox: 100px;
+  --donut__circle-center: calc(var(--donut-viewbox) / 2);
+  --donut__circle-stroke-width: 10px;
+  --donut__circle-radius: calc(
+    var(--donut-viewbox) / 2 - var(--donut__circle-stroke-width) / 2
+  );
+  --donut__circle-circumference: calc(
+    var(--donut__circle-radius) * 2 * var(--pi)
+  );
+  --pi: 3.1415926535897932384626433832795;
+  display: block;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.c-donut__circle {
+  r: var(--donut__circle-radius);
+  cx: var(--donut__circle-center);
+  cy: var(--donut__circle-center);
+  fill: none;
+  stroke: var(--color-neutral-x-light);
+  stroke-width: var(--donut__circle-stroke-width);
+  stroke-dasharray: var(--donut__circle-circumference);
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.6s ease;
+  transform-origin: center;
+}
+
+/*
+    Component: SVG Icons
+    ---
+    Search styles
+*/
+
+.c-icon {
+  display: block;
+  width: calc(16rem / 15);
+  height: calc(16rem / 15);
+  fill: var(--color-neutral);
+}
+
+/*
+    Component: Search
+    ---
+    Search styles
+*/
+
+.c-search {
+  display: flex;
+  align-items: center;
+}
+
+.c-search__input {
+  all: unset;
+  width: 100%;
+  color: var(--color-neutral-xx-dark);
+  opacity: 1;
+}
+
+.c-search__icon {
+  margin-right: var(--global-whitespace-xs);
+}
+
+/*
+    Component: Profile
+    ---
+    Profile styles
+*/
+
+.c-profile {
+  border-radius: 100%;
+}
+
+/*
+    Component: Menu
+    ---
+    Menu styles
+*/
+
+.c-menu,
+.c-menu__icon-list,
+.c-menu__profile {
+  display: flex;
+  align-items: center;
+}
+
+.c-menu__icon {
+  margin: 0 var(--global-whitespace-sm);
+}
+
+.c-menu__icon--profile {
+  margin: 0 var(--global-whitespace-xs) 0 var(--global-whitespace-sm);
+}
+
+.c-menu__profile {
+  border-left: 1px solid var(--color-neutral-x-light);
+  padding-left: var(--global-whitespace-sm);
+}
+
+.c-menu__profile .c-avatar {
+  border-radius: 100%;
+}
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
@@ -306,11 +684,11 @@ input::placeholder {
 */
 
 .u-color-neutral {
-    color: var(--color-neutral);
+  color: var(--color-neutral);
 }
 
 .u-color-neutral-dark {
-    color: var(--color-neutral-dark);
+  color: var(--color-neutral-dark);
 }
 
 /*
@@ -320,31 +698,31 @@ input::placeholder {
 */
 
 .u-pt-clear {
-    padding-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 .u-mb-clear {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .u-mb-xs {
-    margin-bottom: 4px !important;
+  margin-bottom: var(--global-whitespace-xs) !important;
 }
 
 .u-mb-sm {
-    margin-bottom: 8px !important;
+  margin-bottom: var(--global-whitespace-sm) !important;
 }
 
 .u-mb-md {
-    margin-bottom: 16px !important;
+  margin-bottom: var(--global-whitespace-md) !important;
 }
 
 .u-mb-lg {
-    margin-bottom: 32px !important;
+  margin-bottom: var(--global-whitespace-lg) !important;
 }
 
 .u-mb-xl {
-    margin-bottom: 48px !important;
+  margin-bottom: var(--global-whitespace-xl) !important;
 }
 
 /*
@@ -354,25 +732,24 @@ input::placeholder {
 */
 
 .u-max-width-xs {
-    max-width: 27em !important;
+  max-width: 27em !important;
 }
 
 .u-max-width-sm {
-    max-width: 39em !important;
+  max-width: 39em !important;
 }
 
 .u-max-width-md {
-    max-width: 50em !important;
+  max-width: 50em !important;
 }
 
 .u-max-width-lg {
-    max-width: 63.5em !important;
+  max-width: 63.5em !important;
 }
 
 .u-max-width-none {
-    max-width: none !important;
+  max-width: none !important;
 }
-
 
 /*
     Utilities: align
@@ -381,11 +758,11 @@ input::placeholder {
 */
 
 .u-align-text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .u-align-center {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 /*
@@ -394,7 +771,33 @@ input::placeholder {
 */
 
 .u-text-sm {
-    font-size: 14px;
+  font-size: 0.93rem;
+}
+
+/*
+    Utilities: grid column and grid row
+    Utility classes to put on grid items
+*/
+
+@media (min-width: 992px) {
+  .u-x-span-3-bp3 {
+    grid-column: span 3;
+  }
+  .u-x-span-4-bp3 {
+    grid-column: span 4;
+  }
+  .u-x-span-6-bp3 {
+    grid-column: span 6;
+  }
+  .u-x-span-8-bp3 {
+    grid-column: span 8;
+  }
+}
+
+@media (min-width: 992px) {
+  .u-y-span-2-bp3 {
+    grid-row: span 2;
+  }
 }
 
 /*------------------------------------*\
@@ -437,61 +840,61 @@ No media query since this is the default in mobile first design
 */
 
 @media print {
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        color: #000 !important;
-        /* Black prints faster:
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
         http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-    /*
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  /*
     * Don't show links that are fragment identifiers,
     * or use the `javascript:` pseudo protocol
     */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-    pre {
-        white-space: pre-wrap !important;
-    }
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-    /*
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
     * Printing Tables:
     * http://css-discuss.incutio.com/wiki/Printing_Tables
     */
-    thead {
-        display: table-header-group;
-    }
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }
